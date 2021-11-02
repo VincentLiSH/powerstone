@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ivysettings>
-	<settings defaultResolver="defaultChain" checkUpToDate="true"
-		defaultConflictManager="latest-revision" />
-	<resolvers>
-		<chain name="defaultChain">
-			<url name="com.springsource.repository.bundles.release">
-				<ivy
-					pattern="http://repository.springsource.com/ivy/bundles/release/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
-				<artifact
-					pattern="http://repository.springsource.com/ivy/bundles/release/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
-			</url>
-			<url name="com.springsource.repository.bundles.external">
-				<ivy
-					pattern="http://repository.springsource.com/ivy/bundles/external/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
-				<artifact
-					pattern="http://repository.springsource.com/ivy/bundles/external/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
-			</url>
-			<ibiblio name="ibiblio" m2compatible="true" />
-		</chain>
-		<filesystem name="local" checkmodified="true">
-			<artifact pattern="${repository.dir}/[module]/[artifact]-[revision].jar" />
-			<ivy pattern="${repository.dir}/[module]/[module]-dependencies.xml" />
-		</filesystem>
-	</resolvers>
+    <settings defaultResolver="defaultChain" defaultConflictManager="latest-revision"/>
+    <caches defaultCacheDir="d:/.ivy2"/>
+
+    <property name="nexus-public" value="http://110.80.10.154:8888/nexus/content/groups/public"/>
+    <property name="nexus-releases"
+              value="http://110.80.10.154:8888/nexus/content/repositories/releases"/>
+    <property name="nexus-snapshots"
+              value="http://110.80.10.154:8888/nexus/content/repositories/snapshots"/>
+
+    <resolvers>
+        <chain name="defaultChain" checkmodified="true" changingPattern=".*SNAPSHOT">
+            <ibiblio name="public" m2compatible="true" usepoms="true" root="${nexus-public}"/>
+            <ibiblio name="releases" m2compatible="true" usepoms="true" root="${nexus-releases}"/>
+            <ibiblio name="snapshots" m2compatible="true" usepoms="true" root="${nexus-snapshots}"
+                     pattern="[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]"/>
+
+        </chain>
+    </resolvers>
 </ivysettings>
