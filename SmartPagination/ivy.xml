@@ -1,0 +1,42 @@
+<ivy-module version="1.0">
+    <info organisation="org.powerstone" module="smart_pagination" />
+	<configurations>
+		<conf name="default"/>
+		<conf name="test" visibility="private"/>
+	</configurations>
+	
+	<dependencies>
+		<dependency org="log4j" name="log4j" rev="1.2.9" conf="default"/>
+        <dependency org="org.springframework" name="spring" rev="2.5.6" conf="default"/>
+        <dependency org="cglib" name="cglib" rev="2.2" conf="default"/>
+        <dependency org="cglib" name="cglib-nodep" rev="2.2" conf="default"/>
+        <dependency org="javassist" name="javassist" rev="3.8.0.GA" conf="default"/>
+        
+        <dependency org="org.springframework" name="spring-webmvc" rev="2.5.6" conf="default"/>
+		<dependency org="commons-lang" name="commons-lang" rev="2.4" conf="default"/>
+		<dependency org="commons-dbcp" name="commons-dbcp" rev="1.2.1" conf="default"/>
+		<dependency org="commons-collections" name="commons-collections" rev="3.2.1" conf="default"/>	
+        <dependency org="org.hibernate" name="hibernate" rev="3.2.6.ga" conf="default->runtime"/>
+        <dependency org="org.hibernate" name="hibernate-annotations" rev="3.4.0.GA" conf="default"/>
+        <dependency org="javax.persistence" name="persistence-api" rev="1.0" conf="default"/>
+        <dependency org="org.slf4j" name="slf4j-jdk14" rev="1.5.0" conf="default"/>
+        
+        <dependency org="hsqldb" name="hsqldb" rev="1.8.0.7" conf="default"/>
+        
+        <dependency org="javax.servlet" name="jstl" rev="1.1.2" conf="default"/>
+        <dependency org="taglibs" name="standard" rev="1.1.2" conf="default"/>
+        <dependency org="org.hdiv" name="hdiv-core" rev="2.0.3" conf="default"/>
+        <dependency org="org.hdiv" name="hdiv-jstl-taglibs-1.1.2" rev="2.0.3" conf="default"/>
+        <dependency org="org.hdiv" name="hdiv-spring-mvc-2.5" rev="2.0.3" conf="default"/>
+        
+        <dependency org="javax.servlet" name="servlet-api" rev="2.4" conf="test->default"/>
+        <dependency org="javax.servlet" name="jsp-api" rev="2.0" conf="test->default"/>
+
+        <dependency org="org.springframework" name="spring-test" rev="2.5.6" conf="test->default"/>
+        <dependency org="junit" name="junit" rev="4.5" conf="test->default"/>
+        <dependency org="org.mockito" name="mockito-all" rev="1.5" conf="test->default"/>
+        <dependency org="ant-contrib" name="ant-contrib" rev="1.0b3" conf="test->default"/>
+        
+	</dependencies>
+	
+</ivy-module>
